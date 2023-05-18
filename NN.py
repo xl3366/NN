@@ -1,5 +1,10 @@
+
+"""
 #环境变量nn_accounts，账号密码用,分割，多账号之间用;分割
 #例139****1234,passwd1;150****5678,passwd2
+cron: 2 7 * * *
+const $ = new Env("NN");
+"""
 import hashlib
 import json
 from time import sleep
