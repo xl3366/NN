@@ -11,9 +11,11 @@ from time import sleep
 import requests
 import os
 
-
+message = """"""
 def login(phone, passwd):
+    global message
     print(phone)
+    message += phone + "\n"
     _url = 'https://opapi.nnraytheon.com/u-mobile/pwdLogin'
     _data = {
         "countryCode": 86,
@@ -44,6 +46,7 @@ def login(phone, passwd):
     }
     login_status = requests.post(url=_url, data=json.dumps(_data), headers=headers).json()
     print(login_status['retMsg'])
+    message += login_status['retMsg']+ "\n"
     if login_status['retMsg'] != '该用户不存在':
         headers['token'] = login_status['retData']['token']
         _data = {
@@ -55,6 +58,7 @@ def login(phone, passwd):
         for task in task_list['retData']:
             task_ids.append(task['id'])
         print('任务ID:', task_ids)
+        message += f"任务ID:{task_ids}"+ "\n"
         for task_id in task_ids:
             for e in range(10):
                 _data = {
@@ -66,11 +70,24 @@ def login(phone, passwd):
                 result = requests.post(url='https://opapi.nnraytheon.com/nn-assist/taskPoints/pointCallBack',
                                         data=json.dumps(_data), headers=headers).json()
                 print(result['retMsg'])
+                message += result['retMsg']+ "\n"
                 if result['retMsg'] == '当天完成任务已上限':
                     break
                 else:
                     sleep(0)
                     pass
+
+def load_send() -> None:
+    print("加载推送功能中...")
+    global send
+    send = None
+    cur_path = os.path.abspath(os.path.dirname(__file__))
+    if os.path.exists(cur_path + "/notify.py"):
+        try:
+            from notify import send
+        except Exception:
+            send = None
+            print("加载通知服务失败!!!\n")
 
 # 获取环境变量中的所有账号和密码
 accounts_str = os.environ.get('nn_accounts')
@@ -80,3 +97,5 @@ accounts_list = accounts_str.split(';')
 for account in accounts_list:
     phone, passwd = account.split(',')
     login(phone, passwd)
+load_send()
+send("NN",message)
