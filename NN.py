@@ -10,6 +10,7 @@ import json
 from time import sleep
 import requests
 import os
+import re
 
 message = """"""
 def login(phone, passwd):
@@ -93,9 +94,9 @@ def load_send() -> None:
 accounts_str = os.environ.get('nn_accounts')
 
 # 将账号和密码分割成列表
-accounts_list = accounts_str.split(';')
+accounts_list = re.split('[;；&]', accounts_str)
 for account in accounts_list:
-    phone, passwd = account.split(',')
+    phone, passwd = re.split('[,，]', account)
     login(phone, passwd)
 load_send()
 send("NN",message)
