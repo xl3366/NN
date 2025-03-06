@@ -7,8 +7,9 @@
 // @match        http://isv.isvjcloud.cn/index1
 // @icon         https://www.jd.com/favicon.ico
 // @grant        none
-
 // @run-at document-start
+// @downloadURL  https://jsd.onmicrosoft.cn/gh/xl3366/NN/jd.js
+// @updateURL https://jsd.onmicrosoft.cn/gh/xl3366/NN/jd.js
 // ==/UserScript==
 
 (function() {
