@@ -7,8 +7,8 @@
 // @icon         https://www.jd.com/favicon.ico
 // @grant        none
 // @run-at document-start
-// @downloadURL  https://ghproxy.net/https://raw.githubusercontent.com/xl3366/NN/refs/heads/main/jd.js
-// @updateURL https://ghproxy.net/https://raw.githubusercontent.com/xl3366/NN/refs/heads/main/jd.js
+// @downloadURL  https://ghproxy.net/https://raw.githubusercontent.com/xl3366/NN/main/jd.js
+// @updateURL https://ghproxy.net/https://raw.githubusercontent.com/xl3366/NN/main/jd.js
 // ==/UserScript==
 
 (function() {
