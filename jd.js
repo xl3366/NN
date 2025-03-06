@@ -1,15 +1,14 @@
 // ==UserScript==
 // @name         京东车
-// @namespace    http://tampermonkey.net/
-// @version      2025-03-06
+// @version      2025-03-07
 // @description  解除限制
 // @author       法国总统马克龙
 // @match        http://isv.isvjcloud.cn/index1
 // @icon         https://www.jd.com/favicon.ico
 // @grant        none
 // @run-at document-start
-// @downloadURL  https://jsd.onmicrosoft.cn/gh/xl3366/NN/jd.js
-// @updateURL https://jsd.onmicrosoft.cn/gh/xl3366/NN/jd.js
+// @downloadURL  https://ghproxy.net/https://raw.githubusercontent.com/xl3366/NN/refs/heads/main/jd.js
+// @updateURL https://ghproxy.net/https://raw.githubusercontent.com/xl3366/NN/refs/heads/main/jd.js
 // ==/UserScript==
 
 (function() {
